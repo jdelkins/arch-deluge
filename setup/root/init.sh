@@ -44,5 +44,7 @@ chmod -R 775 /usr/bin/deluged /usr/bin/deluge-web /home/nobody
 echo "[info] Starting Supervisor..."
 
 # run supervisor
+# allow a moment for network setup
+sleep 5
 umask 002
 "/usr/bin/supervisord" -c "/etc/supervisor.conf" -n

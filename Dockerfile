@@ -11,7 +11,7 @@ ADD setup/*.conf /etc/supervisor/conf.d/
 ADD setup/root/*.sh /root/
 
 # add my vpn-ip-responder script
-ADD vpn-ip-responder /root/
+ADD vpn-ip-responder /root/vpn-ip-responder/
 
 # install app
 #############
