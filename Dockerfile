@@ -1,5 +1,5 @@
 FROM binhex/arch-base:20160611-01
-MAINTAINER binhex
+MAINTAINER jdelkins
 
 # additional files
 ##################
@@ -9,6 +9,9 @@ ADD setup/*.conf /etc/supervisor/conf.d/
 
 # add install bash script
 ADD setup/root/*.sh /root/
+
+# add my vpn-ip-responder script
+ADD vpn-ip-responder /root/
 
 # install app
 #############
@@ -35,6 +38,9 @@ EXPOSE 58846
 # expose port for incoming torrent data (tcp and udp)
 EXPOSE 58946
 EXPOSE 58946/udp
+
+# expose port 8000 for the rpcxml server
+EXPOSE 8108/tcp
 
 # set environment variables for user nobody
 ENV HOME /home/nobody

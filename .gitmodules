@@ -1,0 +1,3 @@
+[submodule "vpn-ip-responder"]
+	path = vpn-ip-responder
+	url = git@bitbucket.org:jdelkins/vpn-ip-responder.git
