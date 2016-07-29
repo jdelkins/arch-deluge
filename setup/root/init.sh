@@ -44,4 +44,5 @@ chmod -R 775 /usr/bin/deluged /usr/bin/deluge-web /home/nobody
 echo "[info] Starting Supervisor..."
 
 # run supervisor
+umask 002
 "/usr/bin/supervisord" -c "/etc/supervisor.conf" -n
