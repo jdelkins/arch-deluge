@@ -27,8 +27,10 @@ if [[ ! -f "/config/perms.txt" ]]; then
 
 	# set permissions for /config and /data volume mapping
 	echo "[info] Setting permissions recursively on /config and /data..."
-	chown -R "${PUID}":"${PGID}" /config /data
-	chmod -R 775 /config /data
+	find /config -type d -exec chown 3010:2130 {} \; -exec chmod 2775 {} \;
+	find /data -type d -exec chown 3010:2130 {} \; -exec chmod 2775 {} \;
+	find /config -type f -exec chown 3010:2130 {} \; -exec chmod 0664 {} \;
+	find /data -type f -exec chown 3010:2130 {} \; -exec chmod 0664 {} \;
 	echo "This file prevents permissions from being applied/re-applied to /config, if you want to reset permissions then please delete this file and restart the container." > /config/perms.txt
 
 else
