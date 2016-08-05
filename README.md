@@ -17,7 +17,7 @@ docker run -d \
     -p 58846:58846 \
     -p 58946:58946 \
     --name=<container name> \
-    -v <path for data files>:/data \
+    -v <path for data files>:/media \
     -v <path for config files>:/config \
     -v /etc/localtime:/etc/localtime:ro \
     -e PUID=<uid for user> \
@@ -26,7 +26,15 @@ docker run -d \
     binhex/arch-deluge
 ```
 
-Please replace all user variables in the above command defined by <> with the correct values.
+Please replace all user variables in the above command defined by <> with the
+correct values.  If you set the environment variable `PIPEWORK_WAIT`, then the
+container's startup script will wait for the network interface eth1 to come up.
+This is useful in cases where the container is run with an IP on the LAN. Due
+to limitations imposed currently by Docker, the container needs to be
+configured with `--net=none` and then have the interface configured using
+netns. The [pipework](https://github.com/jpetazzo/pipework) script handles this
+nicely, but, since the setup is external to the container, this option forces
+the container to wait until the interface is configured adequately.
 
 **Access application**<br>
 
@@ -39,7 +47,7 @@ docker run -d \
     -p 58846:58846 \
     -p 58946:58946 \
     --name=deluge \
-    -v /apps/docker/deluge/data:/data \
+    -v /apps/docker/deluge/media:/media \
     -v /apps/docker/deluge/config:/config \
     -v /etc/localtime:/etc/localtime:ro \
     -e PUID=0 \
