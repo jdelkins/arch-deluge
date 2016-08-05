@@ -22,6 +22,7 @@ docker run -d \
     -v /etc/localtime:/etc/localtime:ro \
     -e PUID=<uid for user> \
     -e PGID=<gid for user> \
+    -e PIPEWORK_WAIT=yes \ # <-- optional
     binhex/arch-deluge
 ```
 

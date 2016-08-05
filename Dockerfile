@@ -13,6 +13,9 @@ ADD setup/root/*.sh /root/
 # add my vpn-ip-responder script
 ADD vpn-ip-responder /vpn-ip-responder/
 
+# add pipework
+ADD https://raw.githubusercontent.com/jpetazzo/pipework/master/pipework /root/
+
 # install app
 #############
 

@@ -43,6 +43,12 @@ fi
 chown -R "${PUID}":"${PGID}" /usr/bin/deluged /usr/bin/deluge-web /home/nobody
 chmod -R 775 /usr/bin/deluged /usr/bin/deluge-web /home/nobody
 
+# wait if necessary
+if [[ -n $PIPEWORK_WAIT ]]; then
+	echo "[info] Waiting on interface eth1 to come up"
+	/root/pipework --wait
+fi
+
 echo "[info] Starting Supervisor..."
 
 # run supervisor
