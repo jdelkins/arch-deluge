@@ -4,7 +4,7 @@
 set -e
 
 # define pacman packages
-pacman_packages="unzip unrar pygtk python2-service-identity python2-mako python2-notify python"
+pacman_packages="unzip unrar p7zip python2-service-identity python2-mako python"
 
 # install pre-reqs
 pacman -S --needed $pacman_packages --noconfirm
