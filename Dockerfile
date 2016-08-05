@@ -32,18 +32,8 @@ VOLUME /config
 # map /media to host defined data path (used to store data from app)
 VOLUME /media
 
-# expose port for http
-EXPOSE 8112
-
-# expose port for deluge daemon
-EXPOSE 58846
-
-# expose port for incoming torrent data (tcp and udp)
-EXPOSE 58946
-EXPOSE 58946/udp
-
-# expose port 8000 for the rpcxml server
-EXPOSE 8108/tcp
+# expose port for webui, daemon, and rpcxml listener
+EXPOSE 8112/tcp 8113/tcp 8108/tcp
 
 # set environment variables for user nobody
 ENV HOME /home/nobody
