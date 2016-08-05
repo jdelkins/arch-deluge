@@ -20,7 +20,7 @@ ADD https://raw.githubusercontent.com/jpetazzo/pipework/master/pipework /root/
 #############
 
 # make executable and run bash scripts to install app
-RUN chmod +x /root/*.sh && \
+RUN chmod +x /root/*.sh /root/pipework && \
 	/bin/bash /root/install.sh
 
 # docker settings
